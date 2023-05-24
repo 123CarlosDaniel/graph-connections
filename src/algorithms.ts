@@ -74,39 +74,39 @@ function kruskall(edges: number[][], n: number) {
     return res
 }
 
-function dijkstra(edges: number[][], n: number, start: number, end: number) {
-    const res: number[][] = []
-    const adj: number[][][] = new Array(n).fill([])
-    for (let e of edges) {
-        adj[e[0]].push([e[1], e[2]])
-        adj[e[1]].push([e[0], e[2]])
-    }
-    const values = new Array(n).fill(Infinity)
-    const processed = new Array(n).fill(false)
-    values[start] = 0
-    const selectMinVertex = () => {
-        let min = Infinity
-        let vertex = start
-        for (let i = 0; i < n; i++) {
-            if (!processed[i] && values[i] < min) {
-                min = values[i]
-                vertex = i
-            }
-        }
-        return vertex
-    }
-    for (let i = 0; i < n - 1; i++) {
-        let u = selectMinVertex()
-        processed[u] = true
-        for (let n of adj[u]) {
-            if (!processed[n[0]] && (values[u] + n[1]) < values[n[0]]) {
-                values[n[1]] = values[u] + n[1]
-                res.push([u, n[0]])
-            }
-        }
-    }
-    return res
-}
+// function dijkstra(edges: number[][], n: number, start: number, end: number) {
+//     const res: number[][] = []
+//     const adj: number[][][] = new Array(n).fill([])
+//     for (let e of edges) {
+//         adj[e[0]].push([e[1], e[2]])
+//         adj[e[1]].push([e[0], e[2]])
+//     }
+//     const values = new Array(n).fill(Infinity)
+//     const processed = new Array(n).fill(false)
+//     values[start] = 0
+//     const selectMinVertex = () => {
+//         let min = Infinity
+//         let vertex = start
+//         for (let i = 0; i < n; i++) {
+//             if (!processed[i] && values[i] < min) {
+//                 min = values[i]
+//                 vertex = i
+//             }
+//         }
+//         return vertex
+//     }
+//     for (let i = 0; i < n - 1; i++) {
+//         let u = selectMinVertex()
+//         processed[u] = true
+//         for (let n of adj[u]) {
+//             if (!processed[n[0]] && (values[u] + n[1]) < values[n[0]]) {
+//                 values[n[1]] = values[u] + n[1]
+//                 res.push([u, n[0]])
+//             }
+//         }
+//     }
+//     return res
+// }
 
 enum Algorithms {
     NoAlgorithm = 10,
