@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Sigmar', cursive;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.title_app {
+    font-weight: 100;
+    letter-spacing: 2px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    color: #ddd;
+}
+
